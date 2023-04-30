@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iStack20", "iStack20.csproj", "{E28E2AC0-B3F6-400C-93A8-9EBF92A5FBEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E28E2AC0-B3F6-400C-93A8-9EBF92A5FBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E28E2AC0-B3F6-400C-93A8-9EBF92A5FBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E28E2AC0-B3F6-400C-93A8-9EBF92A5FBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E28E2AC0-B3F6-400C-93A8-9EBF92A5FBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8545721-46AE-4883-B9FE-F9DEC79C5949}
+	EndGlobalSection
+EndGlobal
