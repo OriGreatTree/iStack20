@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using LibConnection;
+using System;
 
 namespace iStack20
 {
@@ -17,6 +18,8 @@ namespace iStack20
         DataTable dt = new DataTable();
         string conn = "server= localhost;user= root;database= istack24;port= 3306;password= root;";
 
+        int idadm;
+
         private void butopen_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -27,7 +30,6 @@ namespace iStack20
                 {
                     string psw = LpasswordHide.Password;
                     Lpassword.Text = psw;
-                    LpasswordHide.Visibility = Visibility.Hidden;
                 }
 
                 MySqlConnection sqlc = new MySqlConnection(conn);
@@ -40,14 +42,13 @@ namespace iStack20
                 adapter.SelectCommand = tlogin;
                 adapter.Fill(dt);
 
-                cons.logins(ref mes, Llogin.Text);
-                MessageBox.Show(mes);
-
                 if (dt.Rows.Count > 0) 
-                { 
+                {
+                    cons.logins(ref mes, Llogin.Text);
                     MainWindow mw = new MainWindow();
                     mw.Show();
-                    this.Close();
+                    this.Close();  
+                    MessageBox.Show(mes);
                 }
                 else
                 {
@@ -73,8 +74,7 @@ namespace iStack20
                 string psw = Lpassword.Text;
                 LpasswordHide.Password = psw;
                 LpasswordHide.Visibility = Visibility.Visible;
-            }
-            
+            } 
         }
     }
 }

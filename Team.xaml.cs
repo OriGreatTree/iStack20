@@ -97,6 +97,8 @@ namespace iStack20
                     update.ExecuteNonQuery();
                     cons.con("работники", ref adapter, ref dt);
                     DataGrid.ItemsSource = dt.DefaultView;
+                    cons.selectcon("*", $"работники WHERE ID_Команды = {idt}", ref adapter, ref dt);
+                    DataGrid2.ItemsSource = dt.DefaultView;
                     sqlc.Close();
                     MessageBox.Show("Команда обновлена!");
                     sc = 0;

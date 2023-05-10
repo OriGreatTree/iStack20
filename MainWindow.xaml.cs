@@ -20,7 +20,6 @@ namespace iStack20
         DataTable dt = new DataTable();
         string conn = "server= localhost;user= root;database= istack24;port= 3306;password= root;";
 
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -32,13 +31,19 @@ namespace iStack20
                 MySqlConnection sqlc = new MySqlConnection(conn);
                 sqlc.Open();
                 MySqlDataReader sqlread = null;
+                MySqlCommand fioadm = new MySqlCommand($"SELECT Имя_администратора FROM администрация WHERE ID_Администратора = {conect.stat}", sqlc);
+                MySqlCommand dolz = new MySqlCommand($"SELECT Должность FROM администрация WHERE ID_Администратора = {conect.stat}", sqlc);
+                Fi.Text = Convert.ToString(fioadm.ExecuteScalar());
+                Fi.Text += " " + Convert.ToString(dolz.ExecuteScalar());
+
+                //dol.Text = Convert.ToString(dolz.ExecuteScalar());
                 MySqlCommand command = new MySqlCommand("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = DATABASE() ", sqlc);
                 sqlread = command.ExecuteReader();
                 while (sqlread.Read())
                 {
                     namets.Items.Add(Convert.ToString(sqlread["TABLE_NAME"]));
                 }
-                sqlc.Close();
+            sqlc.Close();
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {
@@ -94,6 +99,7 @@ namespace iStack20
         {
             login log = new login();
             log.Show();
+            this.Close();
         }
 
         private void butwork_Click(object sender, RoutedEventArgs e)

@@ -1,11 +1,12 @@
-﻿<Window x:Class="iStack20.NewOrder" WindowStyle="None"
+﻿<Window x:Class="iStack20.NewOrder"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:iStack20"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
-        Title="NewOrder" Height="974.75" Width="1583.5" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowsTransparency="True" BorderBrush="Black" Background="#F81D1D1D">
+        Title="NewOrder" Height="1002.75" Width="1583.5" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" BorderBrush="Black"  fw:AcrylicWindow.Enabled="True" Background="#70042491">
     <Window.Resources>
         <Style x:Key="testBtn" TargetType="TextBox">
             <Setter Property="Background" Value="#D6001C4D">
@@ -42,12 +43,12 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Margin="0,0,0,-21">
-        <Grid HorizontalAlignment="Left" Height="986" Margin="7,0,0,0" VerticalAlignment="Top" Width="730" Background="#FF0C0C0C"/>
+    <Grid Margin="0,0,0,-21" fw:PointerTracker.Enabled="True" >
+        <Grid HorizontalAlignment="Left" Height="986" VerticalAlignment="Top" Width="737" Background="#FF000D23"/>
 
         <Label Content="Заказы" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontWeight="Bold" Foreground="White" FontSize="68" RenderTransformOrigin="-0.57,0.724" Height="94" Width="318"/>
         <Label Content="Клиент" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,395,0,0"/>
-        <TextBox x:Name="nameclient" Style="{StaticResource testBtn}" HorizontalAlignment="Left" Height="40" Margin="393,413,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionChanged="nameclient_SelectionChanged"/>
+        <TextBox x:Name="nameclient" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="393,413,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="20" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionChanged="nameclient_SelectionChanged" BorderBrush="{x:Null}"/>
         <Label Content="Название заказа" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,459,0,0"/>
 
         <Label Content="Команда" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,511,0,0"/>
@@ -61,7 +62,7 @@
         </ComboBox>
 
         <Label Content="Услуга" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,565,0,0"/>
-        <ComboBox x:Name="Uslug" HorizontalAlignment="Left" Margin="393,578,0,0" VerticalAlignment="Top" Width="318" Background="#D6474747" FontSize="24" FontWeight="Bold" BorderBrush="#D6474747" Foreground="White">
+        <ComboBox x:Name="Uslug" HorizontalAlignment="Left" Margin="393,578,0,0" VerticalAlignment="Top" Width="318" Background="#D6474747" FontSize="24" FontWeight="Bold" BorderBrush="{x:Null}" Foreground="White">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ComboBoxItem}">
                     <Setter Property="Background" Value="black"/>
@@ -79,11 +80,11 @@
             </ComboBox.ItemContainerStyle>
         </ComboBox>
         <Label Content="Администратор" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,678,0,0"/>
-        <TextBox x:Name="administrator" HorizontalAlignment="Left" Style="{StaticResource testBtn}" Height="40" Margin="393,686,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
+        <TextBox x:Name="administrator" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="40" Margin="393,686,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="20" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
         <Label Content="Цена" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,725,0,-19"/>
-        <Button x:Name="teamred" Content="Найти" HorizontalAlignment="Left" Margin="250,525,0,0" Width="138" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="teamred_Click"/>
-        <Button x:Name="butopen_Copy1" Content="Подсчитать" HorizontalAlignment="Left" Margin="224,741,0,-15" Width="164" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top"/>
-        <TextBox x:Name="CostBox" HorizontalAlignment="Left" Height="40" Style="{StaticResource testBtn}" Margin="393,739,0,-15" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="teamred" Style="{StaticResource ButtonRevealStyle}" Content="Найти" HorizontalAlignment="Left" Margin="250,525,0,0" Width="138" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="teamred_Click"/>
+        <Button x:Name="butcount" Style="{StaticResource ButtonRevealStyle}" Content="Подсчитать" HorizontalAlignment="Left" Margin="224,741,0,-15" Width="164" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butcount_Click"/>
+        <TextBox x:Name="CostBox" HorizontalAlignment="Left" Height="40" Style="{StaticResource TextBoxRevealStyle}" Margin="393,739,0,-15" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="20" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
         <Label Content="Срок выполнения" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,780,0,-74" Width="358"/>
         <Label Content="Дата оформления" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,833,0,-127" Width="361"/>
         <Label Content="Дата выполнения" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="3,888,0,-182" Width="354"/>
@@ -127,16 +128,16 @@
             </ComboBox.ItemContainerStyle>
         </ComboBox>
         <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="243" Margin="7,146,0,0" VerticalAlignment="Top" Width="704" Background="#C0000000" Foreground="Black" FontWeight="Bold" SelectionChanged="DataGrid_SelectionChanged"/>
-        <TextBox x:Name="findclient" HorizontalAlignment="Left" Style="{StaticResource testBtn}" Height="38" Margin="9,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" FontSize="24" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="butfind" Content="Найти" HorizontalAlignment="Left" Margin="334,99,0,0" Width="116" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butfind_Click"/>
-        <Button x:Name="butupdatefind" Content="Обновить" HorizontalAlignment="Left" Margin="575,99,0,0" Width="131" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butupdatefind_Click"/>
-        <Button x:Name="CloseBtn" Content="Закрыть" HorizontalAlignment="Left" Margin="1443,0,0,0" Width="141" Height="41" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="CloseBtn_Click" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="findclient" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="38" Margin="9,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" FontSize="20" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" IsUndoEnabled="True" MaxLines="1"/>
+        <Button x:Name="butfind" Style="{StaticResource ButtonRevealStyle}" Content="Найти" HorizontalAlignment="Left" Margin="334,99,0,0" Width="116" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butfind_Click"/>
+        <Button x:Name="butupdatefind" Style="{StaticResource ButtonRevealStyle}" Content="Обновить" HorizontalAlignment="Left" Margin="575,99,0,0" Width="131" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butupdatefind_Click"/>
         <Image x:Name="image"  HorizontalAlignment="Left" Height="749" VerticalAlignment="Top" Width="829" Margin="742,99,0,0"/>
         <Label Content="Схема" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="737,848,0,0" Width="130"/>
-        <TextBox x:Name="nameimage" HorizontalAlignment="Left" Style="{StaticResource testBtn}" Height="40" Margin="873,858,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="552" FontSize="24" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="OpenImages" Content="Открыть" HorizontalAlignment="Left" Margin="1430,858,0,0" Width="141" Height="40" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="OpenImages_Click"/>
-        <Button x:Name="butopen_Copy3" Content="Оформить заказ" HorizontalAlignment="Left" Margin="1011,902,0,0" Width="336" Height="64" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="36" FontWeight="Bold" VerticalAlignment="Top" RenderTransformOrigin="0.557,-0.085" Click="butopen_Copy3_Click"/>
-        <Button x:Name="butnewclientopern" Content="Новый" HorizontalAlignment="Left" Margin="454,99,0,0" Width="116" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butnewclientopern_Click"/>
+        <TextBox x:Name="nameimage" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="40" Margin="873,858,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="552" FontSize="20" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <Button x:Name="OpenImages" Content="Открыть" HorizontalAlignment="Left" Margin="1430,858,0,0" Width="141" Height="40" Style="{StaticResource ButtonRevealStyle}" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="OpenImages_Click"/>
+        <Button x:Name="butopen_Copy3" Style="{StaticResource ButtonRevealStyle}" Content="Оформить заказ" HorizontalAlignment="Left" Margin="1232,903,0,0" Width="336" Height="64" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="36" FontWeight="Bold" VerticalAlignment="Top" RenderTransformOrigin="0.557,-0.085" Click="butopen_Copy3_Click"/>
+        <Button x:Name="butnewclientopern" Style="{StaticResource ButtonRevealStyle}" Content="Новый" HorizontalAlignment="Left" Margin="454,99,0,0" Width="116" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butnewclientopern_Click"/>
+        <Button x:Name="butdel" Style="{StaticResource ButtonRevealStyle}" Content="Удалить заказ" HorizontalAlignment="Left" Margin="742,906,0,0" Width="290" Height="56" Background="#D6720000" Foreground="#FFFFFEFE" FontSize="36" FontWeight="Bold" VerticalAlignment="Top" RenderTransformOrigin="0.557,-0.085" Click="butdel_Click"/>
 
     </Grid>
 </Window>

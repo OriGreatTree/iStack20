@@ -90,6 +90,48 @@ namespace iStack20
             }
         }
 
+        private void butcount_Click(object sender, RoutedEventArgs e)
+        {
+            int costus = 0;
+            cons.countcost(ref costus, Uslug.Text, items.Text);
+            CostBox.Text = Convert.ToString(costus);
+        }
+
+        private void butdel_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы хотите удалить заказ?", "Внимание", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                norder = nameorder.Text;
+                nameorder.Items.Clear();
+                MySqlConnection sqlc = new MySqlConnection(conn);
+                sqlc.Open();
+
+                MySqlCommand iz = new MySqlCommand($"SELECT ID_Заказа FROM заказ WHERE Тип_заказа = '{norder}'", sqlc);
+                int iza = Convert.ToInt32(iz.ExecuteScalar());
+
+                MySqlCommand sostav = new MySqlCommand($"DELETE FROM Состав_заказа WHERE ID_Заказа = @idzak", sqlc);
+                sostav.Parameters.Add("@idzak", MySqlDbType.Int32).Value = iza;
+                sostav.ExecuteNonQuery();
+
+                MySqlCommand deletez = new MySqlCommand($"DELETE FROM заказ WHERE Тип_заказа = @namezak", sqlc);
+                deletez.Parameters.Add("@namezak", MySqlDbType.VarChar).Value = norder;
+                deletez.ExecuteNonQuery();
+                MySqlCommand command = new MySqlCommand($"SELECT ID_Клиента FROM клиент WHERE Фамилия_клиента = '{nameclient.Text}'", sqlc);
+
+                int idcli = Convert.ToInt32(command.ExecuteScalar());
+                MySqlDataReader sqlread = null;
+                MySqlCommand command1 = new MySqlCommand($"SELECT Тип_заказа FROM заказ WHERE ID_Клиента = {idcli}", sqlc);
+                sqlread = command1.ExecuteReader();
+                while (sqlread.Read())
+                {
+                    nameorder.Items.Add(Convert.ToString(sqlread["Тип_заказа"]));
+                }
+                sqlc.Close();
+                MessageBox.Show("Заказ удален");
+            }
+        }
+
         private void OpenImages_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
