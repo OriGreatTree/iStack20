@@ -52,16 +52,8 @@ namespace iStack20
 
         private void butupdate_Click(object sender, RoutedEventArgs e)
         {
-            if (adapter == null)
-            {
-                MessageBox.Show("Отсутствует информация подлежащая загрузке в базу данных");
-            }
-            else
-            {
-                cons.upd(ref adapter, ref dt);
-                DataGrid.ItemsSource = dt.DefaultView;
-                MessageBox.Show("Изменение успешно сохранено!");
-            }
+            cons.con("работники", ref adapter, ref dt);
+            DataGrid.ItemsSource = dt.DefaultView;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -119,12 +111,41 @@ namespace iStack20
             {
 
             }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+                 
+            }
         }
 
         private void butback_Click(object sender, RoutedEventArgs e)
         {
             cons.con("команда", ref adapter, ref dt);
             DataGrid2.ItemsSource = dt.DefaultView;
+        }
+
+        private void butnewworker_Click(object sender, RoutedEventArgs e)
+        {
+            NWorker nw = new NWorker();
+            nw.Show();
+        }
+
+        private void butADD_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(findTEAM.Text))
+            {
+                MessageBox.Show("Название команлы отсутствует!");
+            }
+            else
+            {
+                MySqlConnection sqlc = new MySqlConnection(conn);
+                sqlc.Open();
+                MySqlCommand add = new MySqlCommand($"INSERT INTO команда (Название_команды) VALUES ('{findTEAM.Text}')", sqlc);
+                add.ExecuteNonQuery();
+                cons.con("команда", ref adapter, ref dt);
+                DataGrid2.ItemsSource = dt.DefaultView;
+                MessageBox.Show("Команда добавлена.");
+                sqlc.Close();
+            }  
         }
     }
 }

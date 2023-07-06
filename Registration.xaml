@@ -1,0 +1,54 @@
+﻿<Window x:Class="iStack20.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:iStack20"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="319" Width="1076" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  fw:AcrylicWindow.Enabled="True" Background="#70042491" Icon="logowin.png" Loaded="Window_Loaded">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="546" Background="#FF010336">
+            <DatePicker x:Name="birthday" HorizontalAlignment="Left" Margin="291,232,0,0" VerticalAlignment="Top" Width="245" FontWeight="Bold" FontSize="24" Background="#D6000000" FirstDayOfWeek="Sunday" SelectedDateFormat="Short">
+                <DatePicker.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#D6000000" Offset="1"/>
+                    </LinearGradientBrush>
+                </DatePicker.BorderBrush>
+
+            </DatePicker>
+        </Grid>
+
+        <Label Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="4,0,0,0"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="4,63,0,0"/>
+        <Label Content="Имя" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="4,112,0,0"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="4,161,0,0"/>
+        <Label Content="Дата рождения" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="4,219,0,0"/>
+        <TextBox x:Name="SecNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="216,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="FirstNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="216,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="HZNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="216,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="551,161,0,0"/>
+        <Label Content="Логин" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="551,112,0,0"/>
+        <TextBox x:Name="LoginReg" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="766,126,-6,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="PasswordReg" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="766,175,-6,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <Button x:Name="ButSave" Content="Зарегистрировать" Style="{StaticResource ButtonRevealStyle}"  HorizontalAlignment="Left" Margin="687,236,0,0" Width="229" Height="41" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" RenderTransformOrigin="0.557,-0.085" Click="ButSave_Click"/>
+        <Label Content="Подтверждение" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="551,0,0,0"/>
+        <TextBox x:Name="CheckKey" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="853,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <Label Content="Должность" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="551,63,0,0"/>
+        <ComboBox x:Name="dolz" HorizontalAlignment="Left" Margin="766,77,0,0" VerticalAlignment="Top" Width="299" Background="#D6474747" FontSize="24" FontWeight="Bold" BorderBrush="#D6474747" Height="40" IsEditable="True" Style="{DynamicResource ComboBoxStyle1}" Foreground="White">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="black"/>
+                    <Setter Property="BorderBrush" Value="black"/>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+            <ComboBoxItem Content="Директор"/>
+            <ComboBoxItem Content="Администратор БД"/>
+            <ComboBoxItem Content="Сотрудник"/>
+        </ComboBox>
+        <PasswordBox x:Name="LpasswordHide" HorizontalAlignment="Left" Height="44" Margin="853,14,0,0" VerticalAlignment="Top" Width="207" Background="Black" FontWeight="Bold" FontSize="24" Foreground="White"/>
+    </Grid>
+</Window>

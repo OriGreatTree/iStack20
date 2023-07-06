@@ -6,14 +6,17 @@
         xmlns:local="clr-namespace:iStack20"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
-        Title="Team" Height="442.5" Width="1315.5" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" fw:AcrylicWindow.Enabled="True" Background="#70042491">
+        Title="Команды" Height="442.5" Width="1315.5" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" fw:AcrylicWindow.Enabled="True" Background="#70042491" Icon="logowin.png">
     <Grid fw:PointerTracker.Enabled="True">
-        <TextBox x:Name="findworker" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="38" Margin="8,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" FontSize="24" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="findworker" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="38" Margin="8,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" FontSize="18" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
         <Button x:Name="butopen" Content="Найти" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="356,10,0,0" Width="116" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butopen_Click"/>
-        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="356" Margin="8,53,0,0" VerticalAlignment="Top" Width="694" Background="#C0000000" Foreground="Black" FontWeight="Bold" SelectionChanged="DataGrid_SelectionChanged" />
-        <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Height="356" Margin="726,53,0,0" VerticalAlignment="Top" Width="582" Background="#C0000000" Foreground="Black" FontWeight="Bold" SelectionChanged="DataGrid2_SelectionChanged"/>
-        <Button x:Name="butupdate" Content="Обновить" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="478,10,0,0" Width="136" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butupdate_Click"/>
-        <Button x:Name="butback" Content="Назад" HorizontalAlignment="Left" Style="{StaticResource ButtonRevealStyle}" Margin="1176,10,0,0" Width="110" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butback_Click"/>
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="356" Margin="8,53,0,0" VerticalAlignment="Top" Width="694" Background="#C0000000" Foreground="Black" FontWeight="Bold" SelectionChanged="DataGrid_SelectionChanged" FontSize="18" />
+        <DataGrid x:Name="DataGrid2" HorizontalAlignment="Left" Height="356" Margin="726,53,0,0" VerticalAlignment="Top" Width="582" Background="#C0000000" Foreground="Black" FontWeight="Bold" SelectionChanged="DataGrid2_SelectionChanged" FontSize="18"/>
+        <Button x:Name="butupdate" Content="Обновить" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="575,10,0,0" Width="127" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butupdate_Click"/>
+        <Button x:Name="butback" Content="Назад" HorizontalAlignment="Left" Style="{StaticResource ButtonRevealStyle}" Margin="1215,10,0,0" Width="93" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butback_Click"/>
+        <Button x:Name="butnewworker" Content="Новый" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="472,10,0,0" Width="103" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butnewworker_Click"/>
+        <TextBox x:Name="findTEAM" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="38" Margin="726,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" FontSize="18" Background="#D6000000" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <Button x:Name="butADD" Content="Добавить" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="1077,10,0,0" Width="133" Height="38" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butADD_Click"/>
 
     </Grid>
 </Window>

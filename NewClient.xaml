@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:iStack20"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
-        Title="NewClient" Height="531.522" Width="536.696" ShowInTaskbar="False" ResizeMode="NoResize" fw:AcrylicWindow.Enabled="True" Background="#70042491">
+        Title="Новый  клиент" Height="561.522" Width="536.696" ShowInTaskbar="False" ResizeMode="NoResize" fw:AcrylicWindow.Enabled="True" Background="#70042491" Icon="logowin.png">
     <Window.Resources>
         <Style x:Key="testBtn" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="#D6004D43"/>
@@ -30,19 +30,19 @@
     </Window.Resources>
     <Grid fw:PointerTracker.Enabled="True">
         <Label Content="Новый клиент" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,0,0,0" FontWeight="Bold" Foreground="White" FontSize="36"/>
-        <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,73,0,0"/>
-        <TextBox x:Name="FirmCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="180,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <Label Content="Имя" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,131,0,0"/>
-        <Label Content="Отчество" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,189,0,0"/>
-        <Label Content="Телефон" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,252,0,0"/>
-        <Label Content="Фирма" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,310,0,0"/>
-        <Label Content="Адрес" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,368,0,0"/>
-        <TextBox x:Name="SecNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="180,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <TextBox x:Name="FirstNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="180,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <TextBox x:Name="HZNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="180,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <TextBox x:Name="NumberCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="180,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <TextBox x:Name="AdressCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="40" Margin="180,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="30" Background="#D6000000" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="ButSave" Content="Добавить" Style="{StaticResource ButtonRevealStyle}"  HorizontalAlignment="Left" Margin="180,440,0,0" Width="199" Height="57" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="36" FontWeight="Bold" VerticalAlignment="Top" RenderTransformOrigin="0.557,-0.085" Click="ButSave_Click"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,80,0,0"/>
+        <TextBox x:Name="FirmCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="180,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <Label Content="Имя" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,142,0,0"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,206,0,0"/>
+        <Label Content="Телефон" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,276,0,0"/>
+        <Label Content="Фирма" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,340,0,0"/>
+        <Label Content="Адрес" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="36" Margin="0,404,0,0"/>
+        <TextBox x:Name="SecNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="180,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="FirstNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="180,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="HZNameCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="180,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="NumberCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="180,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <TextBox x:Name="AdressCli" Style="{StaticResource TextBoxRevealStyle}" HorizontalAlignment="Left" Height="44" Margin="180,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="22" Background="#D6000000" Foreground="White" FontWeight="Bold" SelectionOpacity="0"/>
+        <Button x:Name="ButSave" Content="Добавить" Style="{StaticResource ButtonRevealStyle}"  HorizontalAlignment="Left" Margin="180,466,0,0" Width="199" Height="57" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="36" FontWeight="Bold" VerticalAlignment="Top" RenderTransformOrigin="0.557,-0.085" Click="ButSave_Click"/>
 
     </Grid>
 </Window>

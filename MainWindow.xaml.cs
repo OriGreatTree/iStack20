@@ -5,6 +5,7 @@ using LibConnection;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace iStack20
 {
@@ -20,13 +21,24 @@ namespace iStack20
         DataTable dt = new DataTable();
         string conn = "server= localhost;user= root;database= istack24;port= 3306;password= root;";
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (conect.log == 2)
+                switch (conect.log)
                 {
-                    butupdate.Visibility = Visibility.Hidden;
+                    case 1:
+                        butwork.Visibility = Visibility.Hidden;
+                        break;
+                    case 2:
+                        butupdate.Visibility = Visibility.Hidden;
+
+                        break;
+                    case 3:
+                        butupdate.Visibility = Visibility.Hidden;
+                        butwork.Visibility = Visibility.Hidden;
+                        break;
                 }
                 MySqlConnection sqlc = new MySqlConnection(conn);
                 sqlc.Open();
@@ -47,46 +59,74 @@ namespace iStack20
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {
-                MessageBox.Show("Сервер не включен!!!");
+                System.Windows.Forms.MessageBox.Show("Сервер не включен!!!");
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Возникла ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void butopen_Click(object sender, RoutedEventArgs e)
         {
-            if (conect.log == 2)
+            try
             {
-                cons.con(namets.Text, conect.log, ref adapter, ref dt);
-                DataGrid.ItemsSource = dt.DefaultView;
+                switch (conect.log)
+                {
+                    case 1:
+                        cons.con(namets.Text, ref adapter, ref dt);
+                        DataGrid.ItemsSource = dt.DefaultView;
+                        break;
+                    case 2:
+                        cons.con(namets.Text, conect.log, ref adapter, ref dt);
+                        DataGrid.ItemsSource = dt.DefaultView;
+                        break;
+                    case 3:
+                        cons.con(namets.Text, conect.log, ref adapter, ref dt);
+                        DataGrid.ItemsSource = dt.DefaultView;
+                        break;
+                    case 128:
+                        cons.con(namets.Text, ref adapter, ref dt);
+                        DataGrid.ItemsSource = dt.DefaultView;
+                        break;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                cons.con(namets.Text, ref adapter, ref dt);
-                DataGrid.ItemsSource = dt.DefaultView;
+                System.Windows.Forms.MessageBox.Show("Возникла ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
+            //if (conect.log == 2)
+            //{
+            //    cons.con(namets.Text, conect.log, ref adapter, ref dt);
+            //    DataGrid.ItemsSource = dt.DefaultView;
+            //}
+            //else
+            //{
+            //    cons.con(namets.Text, ref adapter, ref dt);
+            //    DataGrid.ItemsSource = dt.DefaultView;
+            //}
         }
 
         private void butupdate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (adapter == null)
+                if (dt == null)
                 {
-                    MessageBox.Show("Отсутствует информация подлежащая загрузке в базу данных");
+                    System.Windows.Forms.MessageBox.Show("Таблица не выбрана");
                 }
                 else
                 {
                     cons.upd(ref adapter, ref dt);
                     DataGrid.ItemsSource = dt.DefaultView;
-                    MessageBox.Show("Изменение успешно сохранено!");
+                    System.Windows.Forms.MessageBox.Show("Изменение успешно сохранено!");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка в таблице!");
-                string namet = namets.Text;
-                cons.con(namet, ref adapter, ref dt);
-                DataGrid.ItemsSource = dt.DefaultView;
-            }  
+                System.Windows.Forms.MessageBox.Show("Возникла ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void butzak_Click(object sender, RoutedEventArgs e)
@@ -124,9 +164,6 @@ namespace iStack20
 
         }
 
-        private void butsp_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(@"C:\Users\Mich9\source\repos\iStack20\istck.chm");
-        }
+        
     }
 }

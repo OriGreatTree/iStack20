@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using LibConnection;
 using System;
+using System.Windows.Forms;
 
 namespace iStack20
 {
@@ -32,32 +33,39 @@ namespace iStack20
                     Lpassword.Text = psw;
                 }
 
+                string log = conect.hashPassword(Llogin.Text);
+                string pas = conect.hashPassword(Lpassword.Text);
+
                 MySqlConnection sqlc = new MySqlConnection(conn);
                 sqlc.Open(); 
 
                 MySqlCommand tlogin = new MySqlCommand($"SELECT * FROM администрация WHERE Логин = @Ll AND Пароль = @Lp", sqlc);
-                tlogin.Parameters.Add("Ll", MySqlDbType.VarChar).Value = Llogin.Text;
-                tlogin.Parameters.Add("Lp", MySqlDbType.VarChar).Value = Lpassword.Text;
+                tlogin.Parameters.Add("Ll", MySqlDbType.VarChar).Value = log;
+                tlogin.Parameters.Add("Lp", MySqlDbType.VarChar).Value = pas;
 
                 adapter.SelectCommand = tlogin;
                 adapter.Fill(dt);
 
                 if (dt.Rows.Count > 0) 
                 {
-                    cons.logins(ref mes, Llogin.Text);
+                    cons.logins(ref mes, log);
                     MainWindow mw = new MainWindow();
                     mw.Show();
-                    this.Close();  
-                    MessageBox.Show(mes);
+                    this.Close();
+                    System.Windows.Forms.MessageBox.Show(mes);
                 }
                 else
                 {
-                    MessageBox.Show("Неверный логин или пароль!");
+                    System.Windows.Forms.MessageBox.Show("Неверный логин или пароль!");
                 }
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {
-                MessageBox.Show("Сервер не включен!!!");
+                System.Windows.Forms.MessageBox.Show("Сервер не включен!!!");
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Возникла ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -75,6 +83,13 @@ namespace iStack20
                 LpasswordHide.Password = psw;
                 LpasswordHide.Visibility = Visibility.Visible;
             } 
+        }
+
+        private void butopenregistr_Click(object sender, RoutedEventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.Show();
+
         }
     }
 }

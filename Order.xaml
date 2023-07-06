@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:iStack20"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
-        Title="Order" Height="560.5" Width="1396.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" fw:AcrylicWindow.Enabled="True" Background="#70042491">
+        Title="Отчет" Height="560.5" Width="1396.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" fw:AcrylicWindow.Enabled="True" Background="#70042491" Icon="logowin.png">
     <Grid fw:PointerTracker.Enabled="True">
         <Label Content="Введите период отчета" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold" Foreground="White" FontSize="36"/>
         <DatePicker x:Name="FirstDate" HorizontalAlignment="Left" Margin="429,24,0,0" VerticalAlignment="Top" Width="390" FontWeight="Bold" FontSize="24" Background="#D6000000" DisplayDate="2022-12-11" FirstDayOfWeek="Sunday">
@@ -29,7 +29,7 @@
                 </LinearGradientBrush>
             </DatePicker.BorderBrush>
         </DatePicker>
-        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="393" Margin="10,89,0,0" VerticalAlignment="Top" Width="800" Background="#C0000000" FontWeight="Bold"/>
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="393" Margin="10,89,0,0" VerticalAlignment="Top" Width="800" Background="#C0000000" FontWeight="Bold" FontSize="18"/>
         <Button x:Name="butopen" Content="Вывести" HorizontalAlignment="Left" Style="{StaticResource ButtonRevealStyle}" Margin="1219,24,0,0" Width="138" Height="40" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="butopen_Click"/>
         <Button x:Name="ButExcel" Content="Сформировть документ" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Center" Margin="564,488,483,0" Width="349" Height="40" Background="#D6000000" Foreground="#FFFFFEFE" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Click="ButExcel_Click"/>
         <TextBlock x:Name="reportt" HorizontalAlignment="Left" Margin="824,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="393" Width="533" FontWeight="Bold" FontSize="36" Foreground="White" Background="#C0000000"/>
